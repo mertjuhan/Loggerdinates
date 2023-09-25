@@ -1,0 +1,14 @@
+<p>map works!</p>
+
+<div>
+<google-map height="400px"
+            width="750px"
+            [accessKey]="'AIzaSyBiKU9nPa7vCW_SKcJ4xOCsXba2bNrbWiA'"
+            [center]="center"
+            [zoom]="zoom"
+            (mapClick)="moveMap($event)"
+            (mapMousemove)="move($event)">
+</google-map>
+</div>
+<div>Latitude: {{display?.lat}}</div>
+<div>Longitude: {{display?.lng}}</div>
