@@ -1,6 +1,8 @@
-<p>map works!</p>
+<mat-toolbar color="primary" >
+  <span>LoggerDinates | JHVCLK</span>
+</mat-toolbar>
 
-<div *ngIf="apiLoaded | async">
+<div *ngIf="apiLoaded | async" class="mt-3">
 <google-map height="400px"
             width="100%"
             [center]="center"

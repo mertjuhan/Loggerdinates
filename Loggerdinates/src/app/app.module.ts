@@ -6,6 +6,7 @@ import { MapComponent } from './Google-Maps/map/map.component';
 import {GoogleMapsModule} from "@angular/google-maps";
 import { AppRoutingModule } from './app-routing.module';
 import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
     GoogleMapsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
