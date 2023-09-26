@@ -1,9 +1,8 @@
 <p>map works!</p>
 
-<div>
+<div *ngIf="apiLoaded | async">
 <google-map height="400px"
-            width="750px"
-            [accessKey]="'AIzaSyBiKU9nPa7vCW_SKcJ4xOCsXba2bNrbWiA'"
+            width="100%"
             [center]="center"
             [zoom]="zoom"
             (mapClick)="moveMap($event)"

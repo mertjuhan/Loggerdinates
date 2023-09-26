@@ -23,7 +23,8 @@ export class MapComponent implements OnInit {
     this.display = event.latLng.toJSON();
   }
   constructor( httpClient : HttpClient) {
-  this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyBiKU9nPa7vCW_SKcJ4xOCsXba2bNrbWiA','callback')
+    const apiKey = 'AIzaSyBjynIWZP9jgf_gRgnXUevNBEg2A1YQOP4';
+  this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key='+apiKey,'callback')
     .pipe(
       map(() => true),
       catchError(() => of(false))
