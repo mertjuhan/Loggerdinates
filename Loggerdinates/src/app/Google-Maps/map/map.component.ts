@@ -9,10 +9,10 @@ import {HttpClient} from "@angular/common/http";
 })
 export class MapComponent implements OnInit {
   apiLoaded : Observable<boolean>;
-  center: google.maps.LatLngLiteral = {lat: 24, lng: 12};
-  zoom = 4;
+  center: google.maps.LatLngLiteral = {lat: 38.5184, lng: 27.13824};
+  zoom = 12;
   display: google.maps.LatLngLiteral | undefined;
-
+  //infoWindow : google.maps.InfoWindow = new google.maps.InfoWindow();
   moveMap(event: google.maps.MapMouseEvent) {
     if(event && event.latLng)
     this.center = (event.latLng.toJSON());
@@ -33,7 +33,20 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (navigator.geolocation && this.apiLoaded) {
+      navigator.geolocation.getCurrentPosition(
+        (position: GeolocationPosition) => {
+          let pos: { lng: number; lat: number };
+          pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
 
+         // this.infoWindow.setPosition(pos);
+         // this.infoWindow.setContent("Location found.");
+          //this.infoWindow.open(map);
+          this.center = pos;
+        });
+    }
   }
-
 }
