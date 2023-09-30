@@ -2,13 +2,28 @@
   <span>LoggerDinates | JHVCLK</span>
 </mat-toolbar>
 
-<div *ngIf="apiLoaded | async" class="mt-3">
-<google-map height="400px"
+<div *ngIf="apiLoaded | async" class="mt-3 mx-2 my-2 p-1 mat-elevation-z9">
+<google-map height="500px"
             width="100%"
             [center]="center"
             [zoom]="zoom"
-            (mapClick)="moveMap($event)"
+            (mapClick)="addMarker($event)"
             (mapMousemove)="move($event)">
+  <map-marker #marker="mapMarker"
+              *ngFor="let markerPosition of markerPositions"
+              [position]="markerPosition"
+              [options]="markerOptions"
+              (mapClick)="openInfoWindow(marker)"></map-marker>
+  <map-info-window>
+    <div *ngIf="selectedMarker" class="d-flex flex-column">
+      <span>Title :{{selectedMarker.getLabel()}} </span>
+      <span>Selected Marker Latitude : {{selectedMarker.getPosition()?.lat() | number : '1.7-7'}}</span>
+      <span>Selected Marker Longitude : {{selectedMarker.getPosition()?.lng() | number : '1.7-7'}}</span>
+
+      <button mat-raised-button color="warn" (click)="deleteMarker()">Remove Marker.</button>
+
+    </div>
+  </map-info-window>
 </google-map>
 </div>
 <div>Latitude: {{display?.lat}}</div>
