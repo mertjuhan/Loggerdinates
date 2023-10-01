@@ -1,10 +1,11 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {findIndex, Observable} from "rxjs";
+import { Observable} from "rxjs";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {GoogleMapsModule, MapInfoWindow, MapMarker} from "@angular/google-maps";
 import {AsyncPipe, CommonModule, NgIf} from "@angular/common";
 import {MapServiceService} from "../../Services/map-service.service";
 import {MatButtonModule} from "@angular/material/button";
+import {MatInputModule} from "@angular/material/input";
 
 @Component({
   selector: 'app-map',
@@ -16,7 +17,8 @@ import {MatButtonModule} from "@angular/material/button";
     NgIf,
     AsyncPipe,
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule
   ],
   standalone: true
 })
@@ -69,10 +71,7 @@ export class MapComponent implements OnInit {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-
-         // this.infoWindow.setPosition(pos);
-         // this.infoWindow.setContent("Location found.");
-          //this.infoWindow.open(map);
+          this.markerPositions.push(pos)
           this.center = pos;
         });
     }

@@ -1,6 +1,12 @@
 <mat-toolbar color="primary" >
   <span>LoggerDinates | JHVCLK</span>
 </mat-toolbar>
+<div class="mt-4 px-3">
+  <mat-form-field class="w-100 mat-elevation-z7 search-input">
+    <mat-label>Search Coordinate & Adress</mat-label>
+    <input matInput placeholder="Example : 36 T 51245 69852">
+  </mat-form-field>
+</div>
 
 <div *ngIf="apiLoaded | async" class="mt-3 mx-2 my-2 p-1 mat-elevation-z9">
 <google-map height="500px"
