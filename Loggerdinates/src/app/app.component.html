@@ -1,1 +1,9 @@
-<router-outlet></router-outlet>
+<app-toolbar (isOpenedChanged)="toggleSidebar()" [data]="showSidebar"></app-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sideNav [opened]="showSidebar" [mode]="this.showSidebar ? 'side' : 'over'" [style.width]="'250px'" >
+    <app-custom-sidebar></app-custom-sidebar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

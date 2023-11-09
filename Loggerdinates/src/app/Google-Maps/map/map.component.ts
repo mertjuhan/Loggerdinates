@@ -6,6 +6,7 @@ import {AsyncPipe, CommonModule, NgIf} from "@angular/common";
 import {MapServiceService} from "../../Services/map-service.service";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {SidebarComponent} from "../../Pages/sidebar/sidebar.component";
 
 @Component({
   selector: 'app-map',
@@ -18,7 +19,8 @@ import {MatInputModule} from "@angular/material/input";
     AsyncPipe,
     CommonModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    SidebarComponent
   ],
   standalone: true
 })

@@ -1,0 +1,12 @@
+.list-group-item:hover {
+  box-shadow:  0 0 4px 3px #673ab7;
+  background-color: #673ab7;
+  color: white;
+  cursor: pointer ;
+}
+.profile-image{
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  object-fit: cover;
+}
