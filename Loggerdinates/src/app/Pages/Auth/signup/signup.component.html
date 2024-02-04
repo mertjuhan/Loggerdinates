@@ -1,0 +1,51 @@
+<div class="d-flex justify-content-center h-100 align-items-center">
+  <div class="card w-50">
+    <div class="card-header">
+      <h3>Kullanıcı Kayıt Formu</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="createForm">
+        <div class="d-flex flex-column">
+          <mat-form-field>
+            <mat-label>Kullanıcı Adı</mat-label>
+            <input matInput placeholder="Kullanıcı Adınızı Giriniz.">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input matInput placeholder="Mail Adresinizi Giriniz.">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Şifre</mat-label>
+            <input matInput placeholder="Şifrenizi Giriniz." formControlName="password" [errorStateMatcher]="matcher">
+            <mat-error *ngIf="createForm.get('password').hasError('required')">
+              Şifre Alanı Boş Bırakılamaz.
+            </mat-error>
+            <mat-error *ngIf="createForm.get('password').hasError('uppercase')">
+              Şifreniz en az bir büyük harf içermeli.
+            </mat-error>
+            <mat-error *ngIf="createForm.get('password').hasError('number')">
+              Şifreniz en az bir rakam içermeli.
+            </mat-error>
+            <mat-error *ngIf="createForm.get('password').hasError('symbol')">
+              Şifreniz en az bir sembol(!-},.;[]) içermeli.
+            </mat-error>
+            <mat-error *ngIf="createForm.get('password').hasError('minlength')">
+              Şifreniz en az 8 karakterden oluşmalı.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Re-Password</mat-label>
+            <input matInput placeholder="Enter Your Password Again" >
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button color="accent">Kayıt Ol</button>
+        <button class="ms-2" mat-raised-button color="warn">Giriş Yap</button>
+      </div>
+    </div>
+  </div>
+
+</div>

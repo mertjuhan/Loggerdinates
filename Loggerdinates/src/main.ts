@@ -7,6 +7,8 @@ import {provideHttpClient, withInterceptorsFromDi, withJsonpSupport} from "@angu
 import {AppComponent} from "./app/app.component";
 import {provideRouter} from "@angular/router";
 import {routes} from "./app/Routes";
+import {AuthHttpService} from "./app/Services/Auth/auth-http.service";
+import {provideOAuthClient} from "angular-oauth2-oidc";
 
 if (environment.production) {
   enableProdMode();

@@ -9,10 +9,12 @@
 
 <div class=" p-2 w-100">
   <ul class="list-group">
-    <li class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">person</mat-icon>Kullanıcı Bilgileri</li>
-    <li class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">flight_takeoff</mat-icon>Uçuş Kayıtları</li>
-    <li class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">pin_drop</mat-icon>Koordinat Kayıtları</li>
+    <li [routerLink]="['/userinformation']" class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">person</mat-icon>Kullanıcı Bilgileri</li>
+    <li [routerLink]="['/maps']" class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">explore</mat-icon>Harita</li>
+    <li [routerLink]="['/flights']" class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">flight_takeoff</mat-icon>Uçuş Kayıtları</li>
+    <li [routerLink]="['/coordinates']" class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">pin_drop</mat-icon>Koordinat Kayıtları</li>
     <li class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">description</mat-icon>İlave Bilgiler</li>
-    <li class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">edit</mat-icon>Notlar</li>
+    <li  class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">edit</mat-icon>Notlar</li>
+    <li (click)="logout()" class="list-group-item my-2 p-2 mat-elevation-z9 d-flex align-items-center"><mat-icon class="me-2">logout</mat-icon>Çıkış Yap</li>
   </ul>
 </div>

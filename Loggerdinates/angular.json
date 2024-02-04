@@ -36,7 +36,9 @@
               "node_modules/font-awesome/css/font-awesome.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/oidc-client/dist/oidc-client.js"
+            ]
           },
           "configurations": {
             "production": {
