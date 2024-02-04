@@ -6,6 +6,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {AuthHttpService} from "../../Services/Auth/auth-http.service";
 
 @Component({
   selector: 'app-sidebar',
@@ -32,5 +33,7 @@ export class SidebarComponent {
 
   ngOnInit() {
   }
+
+
 
 }

@@ -1,8 +1,10 @@
-import { CoordinateValideDirectiveDirective } from './coordinate-valide-directive.directive';
+import {
+  CoordinateValidatorDirective,
+} from './coordinate-valide-directive.directive';
 
-describe('CoordinateValideDirectiveDirective', () => {
+describe('CoordinateValidatorDirective', () => {
   it('should create an instance', () => {
-    const directive = new CoordinateValideDirectiveDirective();
+    const directive = new CoordinateValidatorDirective();
     expect(directive).toBeTruthy();
   });
 });

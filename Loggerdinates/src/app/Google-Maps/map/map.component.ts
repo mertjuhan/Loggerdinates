@@ -7,10 +7,12 @@ import {MapServiceService} from "../../Services/map-service.service";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {SidebarComponent} from "../../Pages/sidebar/sidebar.component";
-import {FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import * as mgrs from "mgrs";
+import * as oidc from "oidc-client";
 import {CoordinateValidatorDirective} from "../../Directives/coordinate-valide-directive.directive";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {AuthHttpService} from "../../Services/Auth/auth-http.service";
 
 @Component({
   selector: 'app-map',
@@ -27,7 +29,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     SidebarComponent,
     ReactiveFormsModule,
     CoordinateValidatorDirective,
-    MatFormFieldModule
+    MatFormFieldModule,
   ],
   standalone: true
 })
@@ -42,6 +44,10 @@ export class MapComponent implements OnInit {
   display: google.maps.LatLngLiteral | undefined;
   markerOptions: google.maps.MarkerOptions = {draggable: true};
   @ViewChild(MapInfoWindow) infoWindow! : MapInfoWindow;
+  loginForm : FormGroup = new FormGroup<any>({
+    email : new FormControl('',Validators.required),
+    password :new FormControl('',Validators.required)
+  })
   // moveMap(event: google.maps.MapMouseEvent) {
   //   if(event && event.latLng)
   //   this.center = (event.latLng.toJSON());
@@ -59,7 +65,7 @@ export class MapComponent implements OnInit {
     if(event && event.latLng)
     this.markerPositions.push(event.latLng.toJSON());
   }
-  constructor( private mapService : MapServiceService) {
+  constructor( private mapService : MapServiceService, private authService : AuthHttpService) {
    this.apiLoaded = this.mapService.LoadMap();
   }
   deleteMarker() : void {
